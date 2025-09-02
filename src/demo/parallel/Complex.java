@@ -76,13 +76,11 @@ public class Complex {
      * @param  b multiplier
      * @return this Complex object whose value is this * b
      */
-    public Complex times(Complex b) {
-        Complex a = this;
-        double real = a.re * b.re - a.im * b.im;
-        double imag = a.re * b.im + a.im * b.re;
-        re = real;
-        im = imag;
-        return this;
+    
+    public Complex times(Complex other) {
+        double newRe = this.re * other.getRe() - this.im * other.getIm();
+        double newIm = this.re * other.getIm() + this.im * other.getRe();
+        return new Complex(newRe, newIm);
     }
 
     /**
@@ -103,5 +101,13 @@ public class Complex {
     public Complex cube() {
     return this.times(this).times(this);
     }
-    
+
+
+    public double getRe() {
+        return this.re;
+    }
+
+    public double getIm() {
+        return this.im;
+    }
 }
