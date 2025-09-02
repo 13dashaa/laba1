@@ -93,4 +93,15 @@ public class Complex {
     public double lengthSQ() {
         return re * re + im * im;
     }
+
+    public Complex sin() {
+    double newRe = Math.sin(this.re) * Math.cosh(this.im);
+    double newIm = Math.cos(this.re) * Math.sinh(this.im);
+    return new Complex(newRe, newIm);
+    }
+
+    public Complex cube() {
+    return this.times(this).times(this);
+    }
+    
 }
